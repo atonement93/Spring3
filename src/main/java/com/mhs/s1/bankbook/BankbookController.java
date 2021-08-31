@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mhs.s1.util.DBConnector;
+
 @Controller
 @RequestMapping("/bankbook/*")
 public class BankbookController {
@@ -16,6 +18,9 @@ public class BankbookController {
 	
 	@RequestMapping(value = "bankbookList.do", method = RequestMethod.GET)
 	public ModelAndView list(Integer [] num, ModelAndView mv) {
+		DBConnector dbConnector = new DBConnector();
+		System.out.println(dbConnector.getConnect());
+		
 		for(Integer i : num) {
 			System.out.println(i);
 		}
